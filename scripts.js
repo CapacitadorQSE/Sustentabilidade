@@ -18,3 +18,14 @@ decreaseFont.addEventListener("click", () => {
     content.style.fontSize = `${currentFontSize}px`;
   }
 });
+// Função para smooth scroll ao clicar nos links do menu
+document.querySelectorAll('.nav-icon').forEach((icon) => {
+  icon.addEventListener('click', (event) => {
+    const targetId = icon.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      event.preventDefault();
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
