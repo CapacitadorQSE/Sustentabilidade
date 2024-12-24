@@ -1,13 +1,18 @@
-function adjustFontSize(action) {
-    const elements = document.querySelectorAll('#text, ul');
-    elements.forEach(element => {
-        let currentSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
-        let currentSizeNumber = parseFloat(currentSize);
+// Controle de Acessibilidade
+const content = document.getElementById("content");
+const increaseFont = document.getElementById("increase-font");
+const decreaseFont = document.getElementById("decrease-font");
 
-        if (action === 'increase') {
-            element.style.fontSize = (currentSizeNumber + 2) + 'px';
-        } else if (action === 'decrease') {
-            element.style.fontSize = (currentSizeNumber - 2) + 'px';
-        }
-    });
-}
+let currentFontSize = 16;
+
+increaseFont.addEventListener("click", () => {
+  currentFontSize += 2;
+  content.style.fontSize = `${currentFontSize}px`;
+});
+
+decreaseFont.addEventListener("click", () => {
+  if (currentFontSize > 10) {
+    currentFontSize -= 2;
+    content.style.fontSize = `${currentFontSize}px`;
+  }
+});
