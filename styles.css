@@ -60,7 +60,7 @@ ul {
   padding-left: 20px;
 }
 
-/* Menu Inferior Fixo */
+/* Barra de menu inferior */
 nav.menu {
   position: fixed;
   bottom: 0;
@@ -71,16 +71,38 @@ nav.menu {
   justify-content: space-around;
   align-items: center;
   padding: 10px 0;
+  z-index: 1000;
 }
 
 .nav-icon {
-  font-size: 24px;
   color: var(--text-color);
+  font-size: 24px;
   text-decoration: none;
-  transition: transform 0.2s;
+  transition: transform 0.2s, color 0.2s;
 }
 
 .nav-icon:hover {
   color: var(--highlight-color);
   transform: scale(1.2);
+}
+
+.nav-icon:active {
+  transform: scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .cta-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .carousel iframe {
+    width: 200px;
+    height: 120px;
+  }
+
+  .nav-icon {
+    font-size: 20px;
+  }
 }
